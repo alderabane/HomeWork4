@@ -1,0 +1,89 @@
+import java.util.*;
+public class Linear {
+  
+	Scanner input=new Scanner(System.in);
+	double A,X,B; // ax+b=0
+	public Linear()
+	{
+		//InputData();
+	}
+	public Linear(double a1,double b1)
+	{
+		A=a1;
+		B=b1;
+	}
+	void InputData()
+	{
+		System.out.println("Enter a value for coefficient (A) ");A=input.nextDouble();
+		
+		System.out.println("Enter a value for coefficient (B) ");B=input.nextDouble();
+	}
+
+	void Solution()
+	{
+		X=-B/A;
+	}
+	
+	void printout()
+	{
+		System.out.println("value of x is : "+X);
+	}
+}
+
+
+------------------------------------------------------------
+public class Quadratic extends Linear {
+  
+	double X2,C;
+	public Quadratic() {
+		//InputData2();
+		
+	}	
+	
+	public Quadratic(double num1,double num2,double num3)
+	{A=num1;
+	B=num2;
+	C=num3;
+		
+	}
+	void InputData()
+	{
+		super.InputData();
+		System.out.println("Enter a value for coefficient (C) ");C=input.nextDouble();
+		
+	}
+	
+	void Solution1()
+	{
+		X=(-B+Math.sqrt((B*B)-4*A*C))/(2*A);
+		X2=(-B-Math.sqrt((B*B)-4*A*C))/(2*A);
+	}
+	void PrintOut()
+	{
+		System.out.println("value of X1 is : "+X);
+		System.out.println("value of X2 is : "+X2);
+	}
+
+}
+--------------------------------------------------------------------------
+
+
+public class Main {
+  static public void main(String[] args)
+	{
+		System.out.println("this is program coded to solve Quadratic equation  "+  
+		                   "AX^2+BX+C=0");
+		Quadratic quadratic1 =new Quadratic();
+		quadratic1.InputData();
+		quadratic1.Solution1();
+		quadratic1.printout();
+		System.out.println("\nwithout input ....\n");
+		Quadratic quadratic2 =new Quadratic(5,8,9);
+		quadratic2.Solution1();
+		quadratic2.printout();		
+		
+		
+	}
+
+}
+
